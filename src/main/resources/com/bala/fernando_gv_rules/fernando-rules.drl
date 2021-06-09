@@ -1,0 +1,29 @@
+package com.bala.fernando_gv_rules;
+
+import com.bala.DataStoreReader;
+import com.bala.Participant;
+
+// define a global variable
+global java.util.List listOfMerchantCodes; 
+
+rule "1 - initialize the global variable named listOfMerchantCodes"
+// set high salience to ensure this rule is executed first
+salience 9999999999 
+dialect "java"
+when
+then
+    // call a Java class to get the list of values required for the global variable
+    // and then, set the list to the global variable 
+    kcontext.getKnowledgeRuntime().setGlobal("listOfMerchantCodes", DataStoreReader.getMerchantCodes()); 
+end
+
+rule "2 - use the dynamically set global variable for condition evaluations"
+dialect "java"
+when
+    Participant($pId: Id) 
+    // check if the current fact's Id is present in the global variable listOfMerchantCodes
+    // which was loaded in rule 1
+    eval(listOfMerchantCodes.contains($pId))   
+then
+    System.out.println("Hurray! A check based on global variable listOfMerchantCodes succeeded!!!");
+end
