@@ -25,12 +25,12 @@ public class DataStoreReader {
 			System.out.println("Connected to PostgreSQL database!");
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement
-					.executeQuery("SELECT codigo, descripcion FROM public.codcardiovascular");
+					.executeQuery("select par_reg.diagnostico from his_tb_param_motor_reglas par_reg inner join his_tb_parametro_general par_gen on par_gen.parametro_general = par_reg.param_clasifica_diag and par_gen.codigo_externo = 'DIAG_ECV'");
 			while (resultSet.next()) {
 				System.out.printf("%-30.30s  %-30.40s%n",
-						resultSet.getString("codigo"),
-						resultSet.getString("descripcion"));
-				listaCodigos.add(resultSet.getString("codigo"));
+				// resultSet.getString("codigo"),
+						resultSet.getString("par_reg.diagnostico"));
+				listaCodigos.add(resultSet.getString("par_reg.diagnostico"));
 			}
 
 		} catch (ClassNotFoundException e) {
