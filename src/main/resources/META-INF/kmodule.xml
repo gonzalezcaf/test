@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule">
-	<kbase name="fernando-rules" equalsBehavior="equality" packages="com.bala.fernando_gv_rules">
-		<ksession name="fernando-session" default="true" type="stateless" />
-	</kbase>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <kbase name="fernando-rules" default="false" eventProcessingMode="stream" equalsBehavior="equality" packages="com.bala.fernando_gv_rules">
+    <ksession name="fernando-session" type="stateless" default="true" clockType="realtime"/>
+  </kbase>
 </kmodule>
