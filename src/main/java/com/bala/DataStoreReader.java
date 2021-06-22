@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class DataStoreReaderOracle {
+public class DataStoreReader {
 
 	public static List<String> getMerchantCodes() {
 		System.out.println("Loading values from database");
@@ -44,6 +44,6 @@ public class DataStoreReaderOracle {
 		return listaCodigos;
 	}
 
-	public DataStoreReaderOracle() {
+	public DataStoreReader() {
 	}
 }
