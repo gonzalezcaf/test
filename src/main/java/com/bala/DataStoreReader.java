@@ -15,14 +15,15 @@ public class DataStoreReader {
 		System.out.println("Loading values from database");
 
 		List<String> listaCodigos = new ArrayList<String>();
-		try (Connection connection = DriverManager.getConnection(
-				"jdbc:postgresql://192.168.122.40:5432/listas", "fgonzalezc",
-				"redhat01")) {
+		try (Connection connection = DriverManager
+				.getConnection(
+						"jdbc:oracle:thin:@srvvdesabd-scan.colsanitas.com:1521/DAVICEN",
+						"wusumotorreglas", "UnWy22dBxkL9JYuu")) {
 
-			System.out.println("Java JDBC PostgreSQL Example");
-			Class.forName("org.postgresql.Driver");
+			System.out.println("Java JDBC Oracle Example");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			System.out.println("Connected to PostgreSQL database!");
+			System.out.println("Connected to Oracle database!");
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement
 					.executeQuery("select par_reg.diagnostico from his_tb_param_motor_reglas par_reg inner join his_tb_parametro_general par_gen on par_gen.parametro_general = par_reg.param_clasifica_diag and par_gen.codigo_externo = 'DIAG_ECV'");
@@ -34,7 +35,7 @@ public class DataStoreReader {
 			}
 
 		} catch (ClassNotFoundException e) {
-			System.out.println("PostgreSQL JDBC driver not found.");
+			System.out.println("Oracle JDBC driver not found.");
 			e.printStackTrace();
 		} catch (SQLException e) {
 			System.out.println("Connection failure.");
