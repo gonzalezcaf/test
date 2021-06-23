@@ -15,10 +15,9 @@ public class DataStoreReader {
 		System.out.println("Loading values from database");
 
 		List<String> listaCodigos = new ArrayList<String>();
-		try (Connection connection = DriverManager
-				.getConnection(
-						"jdbc:oracle:thin:@//srvvdesabd-scan.colsanitas.com:1521/DAVICEN",
-						"wusumotorreglas", "UnWy22dBxkL9JYuu")) {
+		try (Connection connection = DriverManager.getConnection(
+				"jdbc:oracle:thin:@//172.18.46.46:1521/DAVICEN",
+				"wusumotorreglas", "UnWy22dBxkL9JYuu")) {
 
 			System.out.println("Java JDBC Oracle Example");
 			Class.forName("oracle.jdbc.driver.­OracleDriver");
