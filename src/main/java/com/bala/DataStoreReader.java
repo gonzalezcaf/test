@@ -29,8 +29,8 @@ public class DataStoreReader {
 			while (resultSet.next()) {
 				System.out.printf("%-30.30s  %-30.40s%n",
 				// resultSet.getString("codigo"),
-						resultSet.getString("par_reg.diagnostico"));
-				listaCodigos.add(resultSet.getString("par_reg.diagnostico"));
+						resultSet.getString("diagnostico"));
+				listaCodigos.add(resultSet.getString("diagnostico"));
 			}
 
 		} catch (ClassNotFoundException e) {
