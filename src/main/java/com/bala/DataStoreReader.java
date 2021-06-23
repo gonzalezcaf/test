@@ -27,8 +27,7 @@ public class DataStoreReader {
 			ResultSet resultSet = statement
 					.executeQuery("select par_reg.diagnostico from his_tb_param_motor_reglas par_reg inner join his_tb_parametro_general par_gen on par_gen.parametro_general = par_reg.param_clasifica_diag and par_gen.codigo_externo = 'DIAG_ECV'");
 			while (resultSet.next()) {
-				System.out.printf("%-30.30s",
-						resultSet.getString("diagnostico"));
+				System.out.println(resultSet.getString("diagnostico"));
 				listaCodigos.add(resultSet.getString("diagnostico"));
 			}
 
