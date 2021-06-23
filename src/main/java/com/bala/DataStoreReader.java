@@ -21,7 +21,7 @@ public class DataStoreReader {
 						"wusumotorreglas", "UnWy22dBxkL9JYuu")) {
 
 			System.out.println("Java JDBC Oracle Example");
-			Class.forName("com.oracle");
+			Class.forName("oracle.jdbc.driver.­OracleDriver");
 
 			System.out.println("Connected to Oracle database!");
 			Statement statement = connection.createStatement();
